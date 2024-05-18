@@ -11,6 +11,7 @@
   "paths": {
     "/api/auth/register": {
       "post": {
+        "tags": ["Auth"],
         "description": "",
         "parameters": [
           {
@@ -20,21 +21,33 @@
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "First Name"
                 },
                 "lastName": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Last Name"
                 },
                 "email": {
+                  "type": "string",
                   "example": "example@example.com"
                 },
                 "password": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "*******"
                 },
                 "username": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "username"
                 }
-              }
+              },
+              "required": [
+                "firstName",
+                "lastName",
+                "email",
+                "password",
+                "username"
+              ]
             }
           }
         ],
@@ -53,6 +66,7 @@
     },
     "/api/auth/login": {
       "post": {
+        "tags": ["Auth"],
         "description": "",
         "parameters": [
           {
@@ -62,15 +76,19 @@
               "type": "object",
               "properties": {
                 "email": {
+                  "type": "string",
                   "example": "example@example.com"
                 },
                 "username": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "username"
                 },
                 "password": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "******"
                 }
-              }
+              },
+              "required": ["password"]
             }
           }
         ],
@@ -89,6 +107,7 @@
     },
     "/api/auth/logout": {
       "post": {
+        "tags": ["Auth"],
         "description": "",
         "parameters": [
           {
@@ -109,6 +128,7 @@
     },
     "/api/user/profile": {
       "get": {
+        "tags": ["User"],
         "description": "",
         "parameters": [
           {
@@ -127,5 +147,15 @@
         }
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "Authentication related endpoints"
+    },
+    {
+      "name": "User",
+      "description": "User related endpoints"
+    }
+  ]
 }

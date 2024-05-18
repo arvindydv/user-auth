@@ -1,6 +1,7 @@
 import { User } from "../models/user.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
+import validator from "validator";
 
 // genrate access token and refresh token
 const generateAccessAndRefereshTokens = async (userId) => {
@@ -25,17 +26,22 @@ const generateAccessAndRefereshTokens = async (userId) => {
 const register = asyncHandler(async (req, res) => {
   const payload = req.body;
   if (
-    !(
-      payload.firstName ||
-      payload.lastName ||
-      payload.email ||
-      payload.password ||
-      payload.username
-    )
+    !payload.firstName ||
+    !payload.lastName ||
+    !payload.email ||
+    !payload.password ||
+    !payload.username
   ) {
     return res
       .status(400)
       .json(new ApiResponse(400, {}, "All fields are required"));
+  }
+
+  // if email is invalid
+  if (!validator.isEmail(payload.email)) {
+    return res
+      .status(400)
+      .json(new ApiResponse(400, {}, "Enter a valid email address"));
   }
 
   //   check user exist or not
