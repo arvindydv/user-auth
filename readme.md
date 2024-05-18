@@ -12,6 +12,11 @@ UserAuth backend built with nodejs, expressJs and mongoDB that aims to provide b
 - _MongoDB_: MongoDB is a document database used for store our data.
 - _Jest_: Jest is used for unit testing.
 
+
+## API Testing
+
+If you want to test API without cloning repository you can use the following url
+Hosted Api url: https://user-auth-qvhu.onrender.com
 ## Installation
 
 To run the project locally, follow these steps:
