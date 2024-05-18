@@ -49,7 +49,7 @@ const register = asyncHandler(async (req, res) => {
     $or: [{ username: payload.username }, { email: payload.email }],
   });
   if (findUser) {
-    res
+    return res
       .status(409)
       .json(new ApiResponse(409, {}, "Email or Username is already in use"));
   }
