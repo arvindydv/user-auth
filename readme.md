@@ -12,11 +12,24 @@ UserAuth backend built with nodejs, expressJs and mongoDB that aims to provide b
 - _MongoDB_: MongoDB is a document database used for store our data.
 - _Jest_: Jest is used for unit testing.
 
-
 ## API Testing
 
 If you want to test API without cloning repository you can use the following url
 Hosted Api url: https://user-auth-qvhu.onrender.com
+
+## Hosted API Routes and Payload
+
+1. Register User Api-
+   Route: https://user-auth-qvhu.onrender.com/api/auth/register
+   Payload: firstName, lastName, email, password, username.
+2. Login User Api-
+   Route: https://user-auth-qvhu.onrender.com/api/auth/login
+   Payload: email, password.
+3. Logout User Api-
+   Route: https://user-auth-qvhu.onrender.com/api/auth/logout
+4. Get User Profile Api-
+   Route: https://user-auth-qvhu.onrender.com/api/user/profile
+
 ## Installation
 
 To run the project locally, follow these steps:
@@ -26,13 +39,12 @@ To run the project locally, follow these steps:
 3. Install dependencies: npm install
 4. Provide all env variable values which is presented in .env.sample file.
 5. Start the development server: npm start
-6. Open your web browser and visit http://localhost:8080 to test the API's with swagger.
-7. For running the test cases you can use the command npm test(Before running the npm   test please comment the line no 9 and 24 in server.js )
+6. Open your web browser and visit http://localhost:8080/api-docs to test the API's with swagger.
+7. For running the test cases you can use the command npm test(Before running the npm test please comment the line no 9 and 24 in server.js )
 
 ## Usage
 
 - We can use this api's for any authentication system.
-
 
 ## Contributing
 
