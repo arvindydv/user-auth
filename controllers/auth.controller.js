@@ -9,16 +9,13 @@ const generateAccessAndRefereshTokens = async (userId) => {
     const user = await User.findById(userId);
     const accessToken = user.generateAccessToken();
     const refreshToken = user.generateRefreshToken();
-
     user.refreshToken = refreshToken;
     await user.save({ validateBeforeSave: false });
 
     return { accessToken, refreshToken };
   } catch (error) {
-    throw new ApiError(
-      500,
-      "Something went wrong while generating referesh and access token"
-    );
+    console.log(error, "err");
+    return "Something went wrong while generating referesh and access token";
   }
 };
 
@@ -84,7 +81,7 @@ const login = asyncHandler(async (req, res) => {
     $or: [{ username: payload.username }, { email: payload.email }],
   });
   if (!user) {
-    res.status(404).json(new ApiResponse(404, {}, "User not found"));
+    return res.status(404).json(new ApiResponse(404, {}, "User not found"));
   }
 
   //  check password vaild or nt

@@ -6,7 +6,7 @@ import helmet from "helmet";
 import xss from "xss-clean";
 import rateLimit from "express-rate-limit";
 import swaggerUi from "swagger-ui-express";
-import swaggerDocument from "./swagger.json" assert { type: "json" };
+// import swaggerDocument from "./swagger.json" assert { type: "json" };
 
 const app = express();
 
@@ -21,7 +21,7 @@ const limiter = rateLimit({
 });
 
 app.use(limiter);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // import api routes
 import authRouter from "./routes/auth.routes.js";
